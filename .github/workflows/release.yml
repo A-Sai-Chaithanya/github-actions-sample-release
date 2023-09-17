@@ -1,5 +1,7 @@
 on:
   push:
+    tags:
+      - "v*.*.*"
 
 name: Upload Release Asset
 
@@ -18,4 +20,6 @@ jobs:
           files: |
             release.txt
             test.txt
-          tag_name: v2.0.0
+          name: ${{github.ref_name}}
+          tag_name: ${{github.ref_name}}
+          body_path: ./CHANGELOG.md
